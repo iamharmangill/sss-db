@@ -3,10 +3,10 @@
   "name": "HarmanTodo",
  
   "env": {
-    "DBHOST": "sss-db.cqp6fkmgbg8b.us-west-2.rds.amazonaws.com",
+    "DBHOST": "",
     "DBPORT": "3306",
-    "DBUSER": "hgill69",
-    "DBPASSWORD": "HarmanGill-2k18",
+    "DBUSER": "",
+    "DBPASSWORD": "",
     "DBNAME": "hgill69"
   },
   "builds": [{ "src": "api/*/index.js", "use": "@now/node" }],
