@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "HarmanTodo",
+  "alias": "hgill69todo",
+  "env": {
+    "DBHOST": "sss-db.cqp6fkmgbg8b.us-west-2.rds.amazonaws.com",
+    "DBPORT": "3306",
+    "DBUSER": "hgill69",
+    "DBPASSWORD": "HarmanGill-2k18",
+    "DBNAME": "todo"
+  },
+  "builds": [{ "src": "api/*/index.js", "use": "@now/node" }],
+  "routes": [
+    { "src": "/api/get", "methods": ["GET"], "dest": "/api/get/index.js"},
+    { "src": "/api/post", "methods": ["POST"], "dest": "/api/post/index.js"},
+    { "src": "/api/update", "methods": ["UPDATE"], "dest": "/api/update/index.js"},
+    { "src": "/api/delete", "methods": ["DELETE"], "dest": "/api/delete/index.js"},
+    { "src": "/", "status": 404},
+    { "src": "/api", "status": 404}
+  ]
+}
