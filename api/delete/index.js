@@ -3,19 +3,20 @@ const bodyParser = require('koa-bodyparser')
 const pool = require('../../dbconfig/dbconfig')
 
 const app = new Koa()
-
 app.use(bodyParser())
 
 app.use(async ctx => {
-  const deleteBody = await ctx.request.body
-  await deleteTodo(deleteBody.todoItem)
-  ctx.body = `Deleted todoItem ${deleteBody.todoItem}`
+  const deldata = await ctx.request.body
+  await createPost(deldata.todoItem)
+
+  ctx.body = { "deletedtodoItem": `${deldata.todoItem}` }
 })
 
-async function deleteTodo(todoItem) {
+
+async function createPost(todoItem) {
   try {
-    const deletedTodo = await pool.query(`DELETE FROM todo WHERE todoItem LIKE '%${todoItem}%'`)
-    return deletedTodo
+    const deltodoItem = await pool.query(`DELETE FROM todo WHERE todoItem LIKE '%${todoItem}%';`)
+    return deltodoItem
   }catch(e){
     console.error(e)
   }

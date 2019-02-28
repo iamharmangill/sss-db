@@ -1,10 +1,26 @@
-const Koa = require('koa')
-const bodyParser = require('koa-bodyparser')
+const Koa = require('koa');
+const bodyParser = require('koa-bodyparser');
+const pool = require('../../dbconfig/dbconfig');
 
 const app = new Koa()
 
+app.use(bodyParser())
+
 app.use(async ctx => {
-  ctx.body = JSON.stringify({ 'name': 'test' })
+
+  const todoItem = await ctx.request.body.todoItem
+  const returnedtodoItem = await getTodoItem(todoItem)
+  ctx.body = returnedtodoItem
+
 })
+
+async function getTodoItem(todoItem) {
+  try {
+    const gettodoitem = await pool.query(`SELECT * FROM todo WHERE todoItem LIKe '%${todoItem}%';`)
+    return gettodoitem[0]
+  }catch(e){
+    console.error(e)
+  }
+}
 
 module.exports = app.callback()

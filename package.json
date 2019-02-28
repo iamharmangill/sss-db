@@ -12,6 +12,7 @@
   "dependencies": {
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
-    "mysql2": "^1.6.5"
+    "mysql2": "^1.6.5",
+    "promise-mysql": "^3.3.1"
   }
 }
