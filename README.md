@@ -1,6 +1,6 @@
 # Assignment One - Server Side & Database
 
-## ADD data in database
+## Add data
 ```
 http POST https://koa-mysql-assignment-todo-list-5ylffxdz5.now.sh/api/post < post.json
 ```
