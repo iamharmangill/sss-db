@@ -1,4 +1,4 @@
-# aAssignment One - Server Side & Database
+# Assignment One - Server Side & Database
 
 ## ADD data in database
 ```
